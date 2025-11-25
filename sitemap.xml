@@ -4,37 +4,37 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
-    <loc>https://jmc917.github.io/rusca/</loc>
+    <loc>https://rutgersrusca.com/</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://jmc917.github.io/rusca/#what-we-do</loc>
+    <loc>https://rutgersrusca.com/#what-we-do</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jmc917.github.io/rusca/#events</loc>
+    <loc>https://rutgersrusca.com/#events</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://jmc917.github.io/rusca/#team</loc>
+    <loc>https://rutgersrusca.com/#team</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://jmc917.github.io/rusca/#news</loc>
+    <loc>https://rutgersrusca.com/#news</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://jmc917.github.io/rusca/#contact</loc>
+    <loc>https://rutgersrusca.com/#contact</loc>
     <lastmod>2025-01-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
