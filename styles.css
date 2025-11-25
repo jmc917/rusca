@@ -1127,6 +1127,12 @@ img {
     overflow: hidden;
 }
 
+.newsletter-card a,
+.qr-card a {
+    position: relative;
+    z-index: 10;
+}
+
 .newsletter-card::after,
 .qr-card::after {
     content: '';
@@ -1136,6 +1142,7 @@ img {
     background: linear-gradient(135deg, rgba(255, 228, 232, 0.35), transparent 60%);
     opacity: 0;
     transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
 .newsletter-card:hover::after,
@@ -1298,6 +1305,10 @@ img {
     color: rgba(255, 255, 255, 0.78);
     text-decoration: none;
     font-weight: 500;
+    position: relative;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
 }
 
 .footer-column a:hover {
