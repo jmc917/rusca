@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jmc917.github.io/rusca/sitemap.xml
-
