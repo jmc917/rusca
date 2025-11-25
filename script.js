@@ -283,6 +283,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Mission tabs functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const missionTabs = document.querySelectorAll('.mission-tab');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    if (!missionTabs.length || !tabPanels.length) return;
+
+    missionTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const targetTab = tab.dataset.tab;
+
+            // Remove active class from all tabs and panels
+            missionTabs.forEach(t => t.classList.remove('active'));
+            tabPanels.forEach(p => p.classList.remove('active'));
+
+            // Add active class to clicked tab and corresponding panel
+            tab.classList.add('active');
+            const targetPanel = document.getElementById(`tab-${targetTab}`);
+            if (targetPanel) {
+                targetPanel.classList.add('active');
+            }
+        });
+    });
+});
+
 // Close mobile menu on Escape
 document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {

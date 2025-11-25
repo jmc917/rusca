@@ -1112,11 +1112,12 @@ img {
 
 .contact-sidebar {
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
+    align-items: start;
 }
 
 .newsletter-card,
-.contact-directory {
+.qr-card {
     background: var(--white);
     border-radius: 18px;
     padding: 2rem;
@@ -1127,7 +1128,7 @@ img {
 }
 
 .newsletter-card::after,
-.contact-directory::after {
+.qr-card::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -1138,15 +1139,16 @@ img {
 }
 
 .newsletter-card:hover::after,
-.contact-directory:hover::after {
+.qr-card:hover::after {
     opacity: 1;
 }
 
 .newsletter-card h3,
-.contact-directory h3 {
+.qr-card h3 {
     font-size: 1.3rem;
     color: var(--slate-900);
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .newsletter-form {
@@ -1168,54 +1170,77 @@ img {
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
-.contact-directory ul {
-    list-style: none;
-    display: grid;
-    gap: 0.9rem;
-}
-
-.contact-directory li {
+.qr-display-wrapper {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    font-size: 0.95rem;
-    color: var(--slate-500);
+    justify-content: center;
+    margin: 1.5rem 0;
 }
 
-.contact-directory span {
+.qr-display {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: var(--shadow-small);
+    border: 2px solid var(--slate-200);
+}
+
+.qr-link {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.qr-link a {
+    color: var(--primary-600);
     font-weight: 600;
-    color: var(--slate-700);
-}
-
-.contact-directory a {
-    color: var(--primary-700);
     text-decoration: none;
-    font-weight: 600;
+    font-size: 1rem;
 }
 
-.contact-directory a:hover {
+.qr-link a:hover {
     text-decoration: underline;
 }
 
-.contact-directory .podcast-links {
-    margin-top: 1.4rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.2rem;
+.qr-card .podcast-links {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--slate-200);
 }
 
-.contact-directory .podcast-links a {
+.qr-card .podcast-links h4 {
+    font-size: 1rem;
+    color: var(--slate-700);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.podcast-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.podcast-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    margin-right: 0;
-    color: var(--primary-600);
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background: var(--primary-100);
+    color: var(--primary-700);
+    border-radius: 999px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    border: 1px solid var(--primary-200);
 }
 
-.contact-directory .podcast-links a:hover {
-    text-decoration: underline;
+.podcast-link:hover {
+    background: var(--primary-600);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-small);
 }
 
 /* Footer */
@@ -1415,10 +1440,6 @@ img {
         padding: 0.4rem 0.9rem;
     }
 
-    .contact-directory li {
-        flex-direction: column;
-        align-items: flex-start;
-    }
 
     .mission-callout {
         flex-direction: column;
@@ -1444,7 +1465,7 @@ img {
 .news-card,
 .highlight,
 .newsletter-card,
-.contact-directory {
+.qr-card {
     animation: fadeInUp 0.6s ease both;
 }
 
@@ -1576,6 +1597,82 @@ img {
     z-index: 1;
 }
 
+/* Mission Tabs */
+.mission-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+    border-bottom: 2px solid var(--slate-200);
+    padding-bottom: 0;
+}
+
+.mission-tab {
+    padding: 1rem 2rem;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--slate-500);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-bottom: -2px;
+    position: relative;
+}
+
+.mission-tab:hover {
+    color: var(--primary-600);
+}
+
+.mission-tab.active {
+    color: var(--primary-600);
+    border-bottom-color: var(--primary-600);
+}
+
+.mission-tab-content {
+    margin-top: 2.5rem;
+    min-height: 300px;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeInUp 0.4s ease;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-panel-content {
+    display: grid;
+    gap: 2rem;
+}
+
+.tab-panel-content .mission-gallery {
+    margin-bottom: 2rem;
+}
+
+.tab-panel-content .mission-gallery img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 18px;
+    box-shadow: var(--shadow-medium);
+    margin: 0 auto;
+}
+
+.tab-panel-content .impact-intro {
+    text-align: left;
+}
+
+.tab-panel-content .impact-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
 .impact-intro h3 {
     font-size: 1.5rem;
     color: var(--primary-900);
@@ -1616,66 +1713,6 @@ img {
     gap: 1.2rem;
 }
 
-/* Contact additions */
-.qr-card {
-    margin-top: 1.8rem;
-    background: var(--white);
-    border-radius: 16px;
-    padding: 1.4rem;
-    box-shadow: var(--shadow-small);
-    border: 1px solid rgba(16, 20, 24, 0.06);
-    position: relative;
-    overflow: hidden;
-}
-
-.qr-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255, 228, 232, 0.32), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.qr-card:hover::after {
-    opacity: 1;
-}
-
-.qr-card h4 {
-    font-size: 1.05rem;
-    color: var(--primary-900);
-    margin-bottom: 0.9rem;
-    position: relative;
-    z-index: 1;
-}
-
-.qr-display {
-    width: 100%;
-    height: auto;
-    border: none;
-    border-radius: 12px;
-    background: var(--slate-100);
-    position: relative;
-    z-index: 1;
-}
-
-.qr-card p {
-    margin-top: 0.75rem;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-}
-
-.qr-card a {
-    color: var(--primary-600);
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.qr-card a:hover {
-    text-decoration: underline;
-}
 
 .membership-card {
     background: var(--white);
@@ -1739,12 +1776,40 @@ img {
     .membership-grid {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
+
+    .mission-tabs {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .mission-tab {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
 }
 
 @media (max-width: 520px) {
     .impact-pills {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .mission-tabs {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .mission-tab {
+        width: 100%;
+        text-align: left;
+        padding: 0.9rem 1.2rem;
+        border-bottom: 1px solid var(--slate-200);
+        border-left: 3px solid transparent;
+    }
+
+    .mission-tab.active {
+        border-left-color: var(--primary-600);
+        border-bottom-color: var(--slate-200);
     }
 }
 
@@ -1893,13 +1958,15 @@ img {
     font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.88);
     line-height: 1.7;
+    max-width: 600px;
 }
 
-.hero-subtext {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 1rem;
-    max-width: 520px;
-    line-height: 1.6;
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--white);
 }
 
 section[id] {
